@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Registration - Experience Pure Design</title>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.407.0/font/lucide.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Mesh Gradient Backgrounds -->
+  <div class="mesh-bg"></div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle-container">
+    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme">
+      <i class="lc-moon theme-icon moon-icon"></i>
+      <i class="lc-sun theme-icon sun-icon"></i>
+    </button>
+  </div>
+
+  <!-- Main Container -->
+  <main class="app-container">
+    <div class="card-wrapper">
+      <!-- Card Decorative elements -->
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+      
+      <div class="form-card">
+        <header class="form-header">
+          <div class="logo-area">
+            <div class="logo-box">
+              <i class="lc-shield-check logo-icon"></i>
+            </div>
+            <span class="logo-text">SecurePortal</span>
+          </div>
+          <h1>Create Account</h1>
+          <p class="subtitle">Join our community in just a few steps. It's safe, fast, and secure.</p>
+        </header>
+
+        <form id="registrationForm" novalidate autocomplete="off">
+          
+          <!-- Name Input Field -->
+          <div class="input-group" id="nameGroup">
+            <div class="input-field-wrapper">
+              <i class="lc-user input-icon"></i>
+              <input type="text" id="fullName" name="fullName" placeholder=" " required minlength="3" autocomplete="name" aria-describedby="nameError" autofocus>
+              <label for="fullName">Full Name</label>
+              <span class="status-indicator">
+                <i class="lc-check success-icon"></i>
+                <i class="lc-alert-circle error-icon"></i>
+              </span>
+            </div>
+            <div class="error-message" id="nameError" role="alert" aria-live="polite">Please enter your full name (at least 3 characters)</div>
+          </div>
+
+          <!-- Email Input Field -->
+          <div class="input-group" id="emailGroup">
+            <div class="input-field-wrapper">
+              <i class="lc-mail input-icon"></i>
+              <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" aria-describedby="emailError">
+              <label for="email">Email Address</label>
+              <span class="status-indicator">
+                <i class="lc-check success-icon"></i>
+                <i class="lc-alert-circle error-icon"></i>
+              </span>
+            </div>
+            <div class="error-message" id="emailError" role="alert" aria-live="polite">Please enter a valid email address</div>
+          </div>
+
+          <!-- Phone Number Input Field -->
+          <div class="input-group" id="phoneGroup">
+            <div class="input-field-wrapper">
+              <i class="lc-phone input-icon"></i>
+              <input type="tel" id="phoneNumber" name="phoneNumber" placeholder=" " required maxlength="14" autocomplete="tel" aria-describedby="phoneError">
+              <label for="phoneNumber">Phone Number</label>
+              <span class="status-indicator">
+                <i class="lc-check success-icon"></i>
+                <i class="lc-alert-circle error-icon"></i>
+              </span>
+            </div>
+            <div class="error-message" id="phoneError" role="alert" aria-live="polite">Please enter a valid 10-digit phone number</div>
+          </div>
+
+          <!-- Password Input Field -->
+          <div class="input-group" id="passwordGroup">
+            <div class="input-field-wrapper">
+              <i class="lc-lock input-icon"></i>
+              <input type="password" id="password" name="password" placeholder=" " required autocomplete="new-password" aria-describedby="passwordError">
+              <label for="password">Password</label>
+              <button type="button" class="password-toggle" id="passwordToggleBtn" aria-label="Toggle password visibility">
+                <i class="lc-eye eye-show"></i>
+                <i class="lc-eye-off eye-hide"></i>
+              </button>
+              <span class="status-indicator password-indicator">
+                <i class="lc-check success-icon"></i>
+                <i class="lc-alert-circle error-icon"></i>
+              </span>
+            </div>
+            
+            <!-- Password Strength Meter -->
+            <div class="strength-meter">
+              <div class="strength-bar-container">
+                <div class="strength-bar" id="strengthBar"></div>
+              </div>
+              <span class="strength-text" id="strengthText">Password Strength</span>
+            </div>
+
+            <!-- Password Requirements Checklist -->
+            <div class="password-requirements">
+              <p class="requirements-title">Password must include:</p>
+              <ul class="requirements-list">
+                <li id="reqLength" class="requirement">
+                  <span class="bullet"></span> At least 8 characters
+                </li>
+                <li id="reqUpper" class="requirement">
+                  <span class="bullet"></span> One uppercase letter
+                </li>
+                <li id="reqLower" class="requirement">
+                  <span class="bullet"></span> One lowercase letter
+                </li>
+                <li id="reqNumber" class="requirement">
+                  <span class="bullet"></span> One numeric character
+                </li>
+                <li id="reqSpecial" class="requirement">
+                  <span class="bullet"></span> One special character (e.g., @$!%*?&)
+                </li>
+              </ul>
+            </div>
+
+            <div class="error-message" id="passwordError" role="alert" aria-live="polite">Please fulfill all password requirements</div>
+          </div>
+
+          <!-- Terms & Conditions Checkbox -->
+          <div class="input-group checkbox-group" id="termsGroup">
+            <label class="checkbox-label" for="terms">
+              <input type="checkbox" id="terms" name="terms" required aria-describedby="termsError">
+              <span class="custom-checkbox">
+                <i class="lc-check checkmark-icon"></i>
+              </span>
+              <span class="label-text">
+                I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+              </span>
+            </label>
+            <div class="error-message checkbox-error" id="termsError" role="alert" aria-live="polite">You must agree to the terms to proceed</div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-text">Create Free Account</span>
+            <i class="lc-arrow-right btn-icon"></i>
+            <span class="btn-loader"></span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Confirmation Modal -->
+  <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <div class="modal-card">
+      <div class="modal-success-icon-wrapper">
+        <div class="circle-border"></div>
+        <div class="success-checkmark-wrapper">
+          <i class="lc-party-popper celebration-icon"></i>
+        </div>
+      </div>
+      <h2 id="modalTitle">Registration Successful!</h2>
+      <p class="modal-subtitle">Welcome aboard! Your account has been securely verified and created.</p>
+      
+      <!-- Account Info Dashboard Details -->
+      <div class="dashboard-details">
+        <div class="dashboard-item">
+          <span class="item-label">Name</span>
+          <span class="item-value" id="summaryName">-</span>
+        </div>
+        <div class="dashboard-item">
+          <span class="item-label">Email</span>
+          <span class="item-value" id="summaryEmail">-</span>
+        </div>
+        <div class="dashboard-item">
+          <span class="item-label">Phone</span>
+          <span class="item-value" id="summaryPhone">-</span>
+        </div>
+        <div class="dashboard-item">
+          <span class="item-label">Security Tier</span>
+          <span class="item-value sec-badge"><i class="lc-shield"></i> Advanced</span>
+        </div>
+      </div>
+
+      <button type="button" class="modal-close-btn" id="modalCloseBtn">
+        Go to Dashboard
+      </button>
+    </div>
+  </div>
+
+  <section class="dashboard-page" id="dashboardPage" hidden>
+    <div class="dashboard-card">
+      <div class="dashboard-headline">
+        <div>
+          <p class="eyebrow">Welcome to your portal</p>
+          <h2 id="dashboardName">New User</h2>
+          <p class="dashboard-copy">This is your account control center. Review your profile, security status, and quick actions.</p>
+        </div>
+        <span class="dashboard-badge-panel">Active account</span>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-summary-card">
+          <span class="card-label">Email</span>
+          <strong id="dashboardEmail">-</strong>
+        </div>
+        <div class="dashboard-summary-card">
+          <span class="card-label">Phone</span>
+          <strong id="dashboardPhone">-</strong>
+        </div>
+        <div class="dashboard-summary-card">
+          <span class="card-label">Security</span>
+          <strong>Advanced</strong>
+        </div>
+        <div class="dashboard-summary-card">
+          <span class="card-label">Actions</span>
+          <strong>Ready to use</strong>
+        </div>
+      </div>
+
+      <div class="dashboard-actions">
+        <button type="button" class="secondary-btn" id="editProfileBtn">Edit Profile</button>
+        <button type="button" class="primary-btn" id="logoutBtn">Back to Signup</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
