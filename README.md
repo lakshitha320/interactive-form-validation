@@ -1,10 +1,5 @@
 # 🚀 Interactive Form Validation
 
-![HTML](https://img.shields.io/badge/HTML5-Structure-orange?style=for-the-badge\&logo=html5)
-![CSS](https://img.shields.io/badge/CSS3-Styling-blue?style=for-the-badge\&logo=css3)
-![JavaScript](https://img.shields.io/badge/JavaScript-Validation-yellow?style=for-the-badge\&logo=javascript)
-![Responsive](https://img.shields.io/badge/Responsive-Design-success?style=for-the-badge)
-
 An interactive and responsive registration form built using **HTML, CSS, and JavaScript**.
 This project demonstrates real-time form validation, dynamic error handling, and modern responsive UI design.
 
